@@ -1,24 +1,12 @@
-import Head from "next/head";
-import Link from "next/link";
+import Layout from "../components/mainLayout";
+import utilStyles from "../styles/scss/utils.module.scss";
 
 export default () => {
   return (
-    <div>
-      <Head>
-        <title>Poolvert Home</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <header>
-        <Link href="/login">
-          <a> Login </a>
-        </Link>
-      </header>
-      <main>
-        <h1>  Home Page </h1>
-      </main>
-      <footer>
-        Footer
-      </footer>
-    </div>
+    <Layout home>
+      <section className={utilStyles.headingMd}>
+        <p> this will be Home </p>
+      </section>
+    </Layout>
   );
-}
+};

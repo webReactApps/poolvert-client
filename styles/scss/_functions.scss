@@ -1,0 +1,7 @@
+@function pxToRem($size: number) {
+  @return (($size * 1px) / 16px) * 1rem;
+}
+
+@function spacing($size: number) {
+  @return $size * 8px;
+}

@@ -1,0 +1,63 @@
+@import "./functions";
+@import "./mixins";
+@import "./variables";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  caret-color: transparent;
+  outline: none;
+}
+
+body,
+html {
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+}
+
+body {
+  padding: 0px;
+}
+
+body:focus {
+  outline: none;
+}
+
+#root {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+input,
+textarea {
+  caret-color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+fieldset,
+legend,
+div,
+p,
+a,
+button,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li {
+  font-family: iranyekan;
+}
