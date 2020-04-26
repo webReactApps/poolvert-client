@@ -1,7 +1,8 @@
 import { IUserVariables, UserActionTypes } from "./type";
 import { initialState } from "./state";
+import { TReducerAction } from "../../type/general-types";
 
-export default (state: IUserVariables, action): IUserVariables => {
+export default (state: IUserVariables, action: TReducerAction<UserActionTypes>): IUserVariables => {
     const { type, ...payload } = action;
     switch (type) {
         case UserActionTypes.SET_ROLE:

@@ -1,0 +1,40 @@
+@mixin flex-center {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+@mixin flex-column-center {
+  @include flex-center;
+  flex-direction: column;
+}
+
+@mixin flex-column-reverse-center {
+  @include flex-center;
+  flex-direction: column-reverse;
+}
+
+@mixin flex-row-reverse-center {
+  @include flex-center;
+  flex-direction: row-reverse;
+}
+
+@mixin full-height {
+  height: 100vh;
+  min-height: 100vh;
+}
+
+@mixin full-width {
+  width: 100vW;
+  min-width: 100vW;
+  max-width: 100vw;
+}
+
+@mixin list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

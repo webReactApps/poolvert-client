@@ -8,12 +8,12 @@
 
 export interface IUserVariables {
     role: string;
-    user: any;
+    user: { [key: string]: any };
 }
 
 export interface IUserActions {
     setRole: (role: string) => void;
-    setSignedIn: (user: any, token: string) => void;
+    setSignedIn: (user: { [key: string]: any }, token: string) => void;
     setSignedOut: () => void;
 }
 

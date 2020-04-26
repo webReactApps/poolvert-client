@@ -1,0 +1,13 @@
+@import "../../styles/scss/mixins";
+
+.main {
+  @include flex-column-center;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+}
+
+.footer {
+  color: white;
+  height: 100px;
+  background-color: grey;
+}

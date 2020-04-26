@@ -1,9 +1,10 @@
 import { IUserVariables, IUserActions, UserActionTypes } from "./type";
 import { Auth } from "../../lib/auth";
+import { TDispatch } from "../../type/general-types";
 
-export default (state: IUserVariables, dispatch): IUserActions => ({
-    setRole: (role = "") => {
-        if (role !== state.role) {
+export default (state: IUserVariables, dispatch: TDispatch<UserActionTypes>): IUserActions => ({
+    setRole: (role) => {
+        if (role && role !== state.role) {
             dispatch({
                 type: UserActionTypes.SET_ROLE,
                 role

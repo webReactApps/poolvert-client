@@ -7,7 +7,7 @@
  *     function, it will return all context state including variables and actions
  */
 
-import React, { createContext, useContext, useReducer, ReactElement } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import reducer from "./reducer";
 import actions from "./action";
 import { IUserActions, IUserVariables, IUser } from "./type";
@@ -19,7 +19,7 @@ export const initialState: IUserVariables = {
 
 export const UserStateContext = createContext<IUserVariables | IUserActions | null>(null);
 
-export const UserStateProvider = ({ children }: { children: ReactElement }): ReactElement => {
+export const UserStateProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
     return (
         <UserStateContext.Provider value={Object.assign({}, state, actions(state, dispatch))}>

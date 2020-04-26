@@ -1,10 +1,10 @@
-import { appConfig } from "../config/app-config";
+import { SECURITY } from "../config/app-config";
 
 export class Auth {
 
-    static urlSearchParamsTokenKey = appConfig.security.urlSearchParamsTokenKey;
-    static storageTokenKey = appConfig.security.storageTokenKey;
-    static headerTokenKey = appConfig.security.headerTokenKey;
+    static urlSearchParamsTokenKey = SECURITY.tokenKey.urlSearchParams;
+    static storageTokenKey = SECURITY.tokenKey.localStorage;
+    static headerTokenKey = SECURITY.tokenKey.header;
 
     static setToken(token: string) {
         localStorage.setItem(Auth.storageTokenKey, token);
