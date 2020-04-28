@@ -1,6 +1,9 @@
-import useSWR, { keyInterface, ConfigInterface } from 'swr';
+import useSWR, * as swrMethods from 'swr';
 import fetch from 'unfetch';
-import { SWR, UNFETCH, SECURITY, API_END_POINT } from '../../config/app-config';
+import { instance as Auth } from "../../lib/auth";
+import { instance as Helpers } from "../../lib/helpers";
+import { SWR, UNFETCH, API_END_POINT } from '../../config/app-config';
+import { IProps, TFetcher } from './type';
 
 const checkStatus = (response: Response) => {
   if (response.ok) {
@@ -10,38 +13,30 @@ const checkStatus = (response: Response) => {
     Object.assign(error, { response });
     return Promise.reject(error);
   }
-}
+};
 
-const fetcher = (url: string, fetcherOptions?: RequestInit) => {
-
+const fetcher: TFetcher = (url, fetcherOptions) => {
+  const token = Auth.getToken();
   const options = Object.assign({}, UNFETCH);
   if (fetcherOptions) {
     const { headers, ...otherOptions } = fetcherOptions;
-    Object.assign(options, otherOptions);
-    if (headers) {
-      options.headers = Object.assign({}, UNFETCH.headers, headers);
-    }
-  }
-
-  const token = localStorage.getItem('token');
-  if (token) {
-    options.headers = Object.assign({}, UNFETCH.headers, {
-      [SECURITY.tokenKey.header]: SECURITY.tokenValuePrefix + token
+    Object.assign(options, otherOptions, {
+      headers: Object.assign({}, UNFETCH.headers, headers || {})
     });
   }
-
-  const urlHasScheme = new RegExp('https?:*', 'ig').test(url);
-
-  return fetch(urlHasScheme ? url : (API_END_POINT + url), options).then(checkStatus).then(r => r.json());
-
+  Object.assign(options.headers, Auth.createTokenHeaderObject(token));
+  return fetch(Helpers.urlHasScheme(url) ? url : (API_END_POINT + url), options).then(checkStatus).then(r => r.json());
 };
 
-const customSwr = (
-  key: keyInterface,
-  fetcherOptions?: RequestInit,
-  fn?: (...args: any) => any | Promise<any>,
-  config?: ConfigInterface
-) => useSWR(key, url => fn ? fn(url) : fetcher(url, fetcherOptions), Object.assign({}, SWR, config));
+const customUseSWR = ({ key, fetcherOptions, fn, config }: IProps) => useSWR(
+  key,
+  url => fn ? fn(url) : fetcher(url, fetcherOptions),
+  Object.assign({}, SWR, config)
+);
 
-export default customSwr;
-export { checkStatus, fetcher };
+export default customUseSWR;
+export {
+  swrMethods,
+  checkStatus,
+  fetcher
+};

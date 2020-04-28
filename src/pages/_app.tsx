@@ -1,12 +1,10 @@
 import { useEffect } from "react";
 import { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import { ThemeProvider } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import { ThemeProvider, CssBaseline } from "@material-ui/core";
 import FLUX from "../flux";
-import RTL from "../components/rtl";
-import { Auth } from "../lib/auth";
-import { SECURITY } from "../config/app-config";
+import { RTL } from "../components";
+import { instance as Auth } from "../lib/auth";
 import theme from "../styles/theme";
 import "../styles/scss/global.scss";
 
@@ -14,7 +12,7 @@ export default ({ Component, pageProps }: AppProps) => {
 
   const router = useRouter();
 
-  const token = router.query && router.query[SECURITY.tokenKey.urlSearchParams];
+  const token = router.query && router.query[Auth.UrlSearchParamsTokenKey];
   if (typeof token === "string") {
     Auth.setToken(token);
     window.location.replace(window.location.href.split("?")[0]);

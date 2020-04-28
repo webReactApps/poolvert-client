@@ -1,3 +1,16 @@
+@mixin make-spaces($space-prefixes) {
+  @each $attr-short, $attr-long in $space-prefixes {
+    $max: 105;
+    $step: 5;
+    @for $i from 1 through ceil($max/$step) {
+      $value: ($i - 1) * $step + 1;
+      .#{$attr-short}#{$value - 1} {
+        #{$attr-long}: #{$value - 1}#{'px'};
+      }
+    }
+  }
+}
+
 @mixin flex-center {
   display: flex;
   flex-direction: row;

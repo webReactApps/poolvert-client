@@ -1,8 +1,27 @@
 @import "./mixins";
+@import "./variables";
 
-*,
-*::after,
-*::before {
+:root {
+  --breakpoint-xs: $breakpoint-xs;
+  --breakpoint-sm: $breakpoint-sm;
+  --breakpoint-md: $breakpoint-md;
+  --breakpoint-lg: $breakpoint-lg;
+  --breakpoint-xl: $breakpoint-xl;
+  --primary-light: $primary-light;
+  --primary-main: $primary-main;
+  --primary-dark: $primary-dark;
+  --secondary-light: $secondary-light;
+  --secondary-main: $secondary-main;
+  --secondary-dark: $secondary-dark;
+  --success-light: $success-light;
+  --success-main: $success-main;
+  --success-dark: $success-dark;
+  --warning-light: $warning-light;
+  --warning-main: $warning-main;
+  --warning-dark: $warning-dark;
+}
+
+*, *::after, *::before {
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
@@ -10,9 +29,7 @@
   outline: none;
 }
 
-html,
-body,
-#__next {
+html, body, #__next {
   @include full-height;
   @include full-width;
 }
@@ -25,8 +42,7 @@ body:focus {
   outline: none;
 }
 
-input,
-textarea {
+input, textarea {
   caret-color: black;
 }
 
@@ -34,20 +50,6 @@ a {
   text-decoration: none;
 }
 
-input,
-fieldset,
-legend,
-div,
-p,
-a,
-button,
-span,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-li {
+input, fieldset, legend, div, p, a, button, span, h1, h2, h3, h4, h5, h6, li {
   font-family: iranyekan;
 }

@@ -1,25 +1,50 @@
 import { SECURITY } from "../config/app-config";
 
-export class Auth {
+class Auth {
 
-    static urlSearchParamsTokenKey = SECURITY.tokenKey.urlSearchParams;
-    static storageTokenKey = SECURITY.tokenKey.localStorage;
-    static headerTokenKey = SECURITY.tokenKey.header;
+  private urlSearchParamsTokenKey: string;
+  private storageTokenKey: string;
+  private headerTokenKey: string;
 
-    static setToken(token: string) {
-        localStorage.setItem(Auth.storageTokenKey, token);
-    }
+  constructor(urlSearchParamsTokenKey?: string, storageTokenKey?: string, headerTokenKey?: string) {
+    this.urlSearchParamsTokenKey = urlSearchParamsTokenKey || SECURITY.tokenKey.urlSearchParams;
+    this.storageTokenKey = storageTokenKey || SECURITY.tokenKey.localStorage;
+    this.headerTokenKey = headerTokenKey || SECURITY.tokenKey.header;
+  }
 
-    static getToken() {
-        return localStorage.getItem(Auth.storageTokenKey);
-    }
+  get UrlSearchParamsTokenKey() {
+    return this.urlSearchParamsTokenKey;
+  }
 
-    static hasToken() {
-        return Boolean(localStorage.getItem(Auth.storageTokenKey));
-    }
+  get StorageTokenKey() {
+    return this.storageTokenKey;
+  }
 
-    static removeToken() {
-        localStorage.removeItem(Auth.storageTokenKey);
-    }
+  get HeaderTokenKey() {
+    return this.headerTokenKey;
+  }
+
+  createTokenHeaderObject(token: string) {
+    return { [this.headerTokenKey]: (SECURITY.tokenValuePrefix + token) };
+  }
+
+  setToken(token: string) {
+    localStorage.setItem(this.storageTokenKey, token);
+  }
+
+  getToken() {
+    return localStorage.getItem(this.storageTokenKey);
+  }
+
+  hasToken() {
+    return Boolean(localStorage.getItem(this.storageTokenKey));
+  }
+
+  removeToken() {
+    localStorage.removeItem(this.storageTokenKey);
+  }
 
 }
+
+const instance = new Auth();
+export { Auth, instance };

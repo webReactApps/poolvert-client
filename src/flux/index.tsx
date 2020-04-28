@@ -1,7 +1,11 @@
-import { UserStateProvider } from "./user/state";
+import * as user from "./user/state";
 
 export default ({ children }) => (
-    <UserStateProvider>
+    <user.UserStateProvider>
         {children}
-    </UserStateProvider>
+    </user.UserStateProvider>
 );
+
+export {
+    user
+};

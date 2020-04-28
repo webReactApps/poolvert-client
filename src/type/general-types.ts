@@ -1,7 +1,14 @@
 import { Dispatch } from "react";
-import { keyInterface } from 'swr';
+import { IProps } from "../components/swr/type";
 
-export type TUserDefinedObject = { [key: string]: any; };
+export type TUserDefinedObject<T = any> = { [key: string]: T; };
 export type TDispatch<T> = Dispatch<{ [key: string]: any; type: T; }>;
 export type TReducerAction<T> = { [key: string]: any; type: T; };
-export type TApiObject = { key: keyInterface; fetcherOptions?: RequestInit; };
+export type TApiObject = IProps;
+
+export interface IHttpResponse<T = TUserDefinedObject> {
+  entity?: T;
+  messages: string[];
+  failed: boolean;
+  responseType: number;
+};

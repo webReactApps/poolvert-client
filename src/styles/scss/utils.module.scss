@@ -1,4 +1,7 @@
 @import "./mixins";
+@import "./variables";
+
+@include make-spaces($space-prefixes);
 
 .flexCenter {
   @include flex-center;

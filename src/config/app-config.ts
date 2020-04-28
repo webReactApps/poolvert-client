@@ -11,7 +11,7 @@ const SECURITY = {
     tokenKey: {
         urlSearchParams: "token",
         localStorage: "token",
-        header: "authorization"
+        header: "Authorization"
     },
     tokenValuePrefix: "bearer ",
     unAuthenticatedRedirect: "/",

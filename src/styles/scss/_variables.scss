@@ -1,3 +1,16 @@
+$space-prefixes : (
+  p : padding,
+  pt : padding-top,
+  pr : padding-right,
+  pb : padding-bottom,
+  pl : padding-left,
+  m : margin,
+  mt : margin-top,
+  mr : margin-right,
+  mb : margin-bottom,
+  ml : margin-left,
+) !default;
+
 $breakpoint-xs: 0px;
 $breakpoint-sm: 600px;
 $breakpoint-md: 960px;

@@ -1,5 +1,5 @@
 import { IUserVariables, IUserActions, UserActionTypes } from "./type";
-import { Auth } from "../../lib/auth";
+import { instance as Auth } from "../../lib/auth";
 import { TDispatch } from "../../type/general-types";
 
 export default (state: IUserVariables, dispatch: TDispatch<UserActionTypes>): IUserActions => ({
