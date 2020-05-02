@@ -1,0 +1,94 @@
+@import '../../styles/scss/functions';
+@import '../../styles/scss/mixins';
+@import '../../styles/scss/variables';
+
+.dashboard-container {
+  @include flex-nowrap;
+  background: #ffffff;
+  box-shadow: 0 3px 6px $grey-200;
+  border-radius: 6px;
+}
+
+.content-container {
+  background-color: $grey-100;
+  border-right: 1px solid $grey-200;
+}
+
+.signout-btn {
+  color: $error-main !important;
+}
+
+.signout-btn, .changePass-btn {
+  & svg {
+    font-size: pxToRem(15) !important;
+  }
+}
+
+.listItem {
+
+  @include pos-rel;
+  padding-right: 0px !important;
+  margin-right: -8px !important;
+  display: inline-flex !important;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    right: 8px;
+    width: 16px;
+    height: 16px;
+    background-color: #ffffff;
+    z-index: 0;
+  }
+
+  &:hover &-shadow-effect {
+    right: 2.5px;
+  }
+
+  &-shadow-effect {
+    content: "";
+    position: absolute;
+    bottom: 2.5px;
+    right: 11px;
+    width: 11px;
+    height: 11px;
+    background: linear-gradient(to right, $primary-light, $primary-dark);
+    transform: rotate(45deg);
+    transition: all 0.1s;
+    z-index: 0;
+  }
+
+  &-icon {
+    @include flex-row-center;
+    font-size: pxToRem(17);
+    color: $primary-main !important;
+    width: 50px !important;
+    min-width: 50px !important;
+    background-color: transparent;
+    border-radius: 10px 0px 0px 10px;
+    padding: spacing(1.5) spacing(2) spacing(1.5) spacing(1.5) !important;
+    z-index: 1;
+    transition: all 0.5s;
+  }
+
+  &:hover &-icon, &-active &-icon {
+    animation: blink 1.5s ease-in alternate infinite;
+    color: #ffffff !important;
+  }
+
+  &-text {
+    padding-right: spacing(1);
+  }
+
+}
+
+@keyframes blink {
+  0% {
+    background-color: $primary-dark;
+  }
+  70%, 100% {
+    background-color: $primary-light;
+  }
+}

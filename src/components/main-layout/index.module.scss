@@ -1,13 +1,18 @@
+@import "../../styles/scss/functions";
 @import "../../styles/scss/mixins";
 
 .main {
   @include flex-column-center;
+  @include full-width;
+  @include flex-nowrap;
+  padding: spacing(4) spacing(6);
   flex-grow: 1;
-  flex-wrap: nowrap;
 }
 
 .footer {
+  @include full-width;
   color: white;
-  height: 100px;
+  height: 150px;
+  min-height: 150px;
   background-color: grey;
 }

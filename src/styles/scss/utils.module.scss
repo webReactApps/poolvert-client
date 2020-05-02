@@ -1,36 +1,65 @@
-@import "./mixins";
-@import "./variables";
+@import './mixins';
+@import './variables';
 
-@include make-spaces($space-prefixes);
+@include make-spaces($space-prefixes, $space-prefixes-max-val, $space-prefixes-step);
+@include make-flex-containers($flex-directions, $alignments);
 
-.flexCenter {
-  @include flex-center;
+.flex-nowrap {
+  @include flex-nowrap;
 }
 
-.flexCenter {
-  @include flex-center;
-}
-
-.flexColumnCenter {
-  @include flex-column-center;
-}
-
-.flexColumnReverseCenter {
-  @include flex-center;
-}
-
-.flexRowReverseCenter {
-  @include flex-center;
-}
-
-.fullHeight {
+.full-height {
   @include full-height;
 }
 
-.fullWidth {
+.full-width {
   @include full-width;
 }
 
 .list {
   @include list;
+}
+
+.no-bg {
+  @include no-bg;
+}
+
+.pos-rel {
+  @include pos-rel;
+}
+
+.text-nowrap {
+  @include text-nowrap;
+}
+
+.text-wrap {
+  @include text-wrap;
+}
+
+.no-space-strict {
+  @include no-space-strict;
+}
+
+.primary-btn {
+  width: 130px;
+  background-color: $primary-main !important;
+  color: #ffffff !important;
+  & * {
+    color: #ffffff !important;
+  }
+  &:hover {
+    background-color: $primary-light !important;
+  }
+}
+
+.default-btn {
+  width: 130px;
+  background-color: $grey-200 !important;
+  color: $grey-500 !important;
+  & * {
+    color: $grey-500 !important;
+  }
+  &:hover {
+    background-color: $grey-300 !important;
+  }
 }

@@ -11,8 +11,8 @@ export default class MyDocument extends Document {
           <link rel="icon" href="/images/favicon.ico" />
           <link rel="shortcut icon" href="/images/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
-          <link rel="stylesheet" href="/css/google-roboto.css" />
-          <link rel="stylesheet" href="/css/iran-yekan.css" />
+          <link rel="stylesheet" type="text/css" href="/css/google-roboto.css" />
+          <link rel="stylesheet" type="text/css" href="/css/iran-yekan.css" />
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
           <meta name="theme-color" content={theme.palette.primary.main} />

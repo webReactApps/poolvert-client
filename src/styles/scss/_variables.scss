@@ -1,3 +1,5 @@
+$space-prefixes-max-val: 200;
+$space-prefixes-step: 5;
 $space-prefixes : (
   p : padding,
   pt : padding-top,
@@ -11,14 +13,30 @@ $space-prefixes : (
   ml : margin-left,
 ) !default;
 
+$flex-directions: (
+  row,
+  row-reverse,
+  column,
+  column-reverse
+);
+
+$alignments: (
+  space-between,
+  space-around,
+  center,
+  flex-start,
+  flex-end
+);
+
 $breakpoint-xs: 0px;
 $breakpoint-sm: 600px;
 $breakpoint-md: 960px;
 $breakpoint-lg: 1280px;
 $breakpoint-xl: 1920px;
-$primary-light:#6002ee;
-$primary-main: #3d00e0;
-$primary-dark: #0000d6;
+
+$primary-light: #2196f3;
+$primary-main: #1976d2;
+$primary-dark: #0d47a1;
 $secondary-light: #ef0078;
 $secondary-main: #c7006e;
 $secondary-dark: #880061;
@@ -28,3 +46,17 @@ $success-dark: #008b00;
 $warning-light: #ff8d00;
 $warning-main: #f47100;
 $warning-dark: #e54304;
+$error-light: #f44336;
+$error-main: #d32f2f;
+$error-dark: #b71c1c;
+
+$grey-50: #FAFAFA;
+$grey-100: #F5F5F5;
+$grey-200: #EEEEEE;
+$grey-300: #E0E0E0;
+$grey-400: #BDBDBD;
+$grey-500: #9E9E9E;
+$grey-600: #757575;
+$grey-700: #616161;
+$grey-800: #424242;
+$grey-900: #212121;

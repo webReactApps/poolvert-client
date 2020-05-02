@@ -1,30 +1,8 @@
 @import "./mixins";
-@import "./variables";
-
-:root {
-  --breakpoint-xs: $breakpoint-xs;
-  --breakpoint-sm: $breakpoint-sm;
-  --breakpoint-md: $breakpoint-md;
-  --breakpoint-lg: $breakpoint-lg;
-  --breakpoint-xl: $breakpoint-xl;
-  --primary-light: $primary-light;
-  --primary-main: $primary-main;
-  --primary-dark: $primary-dark;
-  --secondary-light: $secondary-light;
-  --secondary-main: $secondary-main;
-  --secondary-dark: $secondary-dark;
-  --success-light: $success-light;
-  --success-main: $success-main;
-  --success-dark: $success-dark;
-  --warning-light: $warning-light;
-  --warning-main: $warning-main;
-  --warning-dark: $warning-dark;
-}
 
 *, *::after, *::before {
+  @include no-space;
   box-sizing: border-box;
-  padding: 0px;
-  margin: 0px;
   caret-color: transparent;
   outline: none;
 }

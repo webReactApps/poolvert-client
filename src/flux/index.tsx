@@ -1,4 +1,4 @@
-import * as user from "./user/state";
+import * as user from './user/state';
 
 export default ({ children }) => (
     <user.UserStateProvider>
